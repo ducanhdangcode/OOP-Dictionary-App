@@ -4,9 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
+    private Hangman hman;
     private int turns;
     public Game() {
-        turns = 5;
+        hman = new Hangman();
+        turns = 7;
     }
 
     public int getTurns() {
@@ -42,6 +44,29 @@ public class Game {
                 break;
             }
             else {
+                switch (turns) {
+                    case 7:
+                        this.hman.L_Hold();
+                        break;
+                    case 6:
+                        this.hman.hangHead();
+                        break;
+                    case 5:
+                        this.hman.hangBody();
+                        break;
+                    case 4:
+                        this.hman.hangArm1();
+                        break;
+                    case 3:
+                        this.hman.hangArm2();
+                        break;
+                    case 2:
+                        this.hman.hangLeg1();
+                        break;
+                    case 1:
+                        this.hman.hangLeg2();
+                        break;
+                }
                 System.out.println("Try again!");
             }
             this.turns -= 1;
