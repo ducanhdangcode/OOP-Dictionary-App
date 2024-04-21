@@ -82,10 +82,10 @@ public class DictionaryCommandLine {
                     management.searchByPrefix(searchPrefix);
                     break;
                 case 7:
-                    System.out.println("H A N G M A N");
+                    System.out.println("You have 5 turns to guess the meaning of the word");
                     System.out.println("Type C - Enter to Continue or ESC-Enter to Exit");
                     Scanner choose = new Scanner(System.in);
-                    System.out.print("Your choice: ");
+                    System.out.println("Your choice: ");
                     String option;
                     option = choose.nextLine();
                     if (option.equals("C")) {
