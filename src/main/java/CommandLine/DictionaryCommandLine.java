@@ -91,11 +91,7 @@ public class DictionaryCommandLine {
                     if (option.equals("C")) {
                         Game gm = new Game();
                         while (!option.equals("ESC")) {
-                            Game plGame = new Game();
-                            Word  targetWord = plGame.getRandomWord(this.dictionary);
-                            plGame.playGame(targetWord);
-                            System.out.println("Type C - Enter to Continue or ESC-Enter to Exit");
-                            option = sc.nextLine();
+
                         }
 
                     }

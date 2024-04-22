@@ -1,6 +1,6 @@
 package CommandLine;
 
-public class Hangman {
+public class Hangman extends Game {
     private boolean L_hold;
     private boolean hangManHead;
     private boolean hangManBody;
@@ -10,6 +10,7 @@ public class Hangman {
     private boolean hangManLeg2;
 
     public Hangman() {
+        super();
         L_hold = false;
         hangManHead = false;
         hangManBody = false;
