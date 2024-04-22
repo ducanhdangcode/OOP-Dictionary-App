@@ -4,11 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
+    protected Word word;
     protected int turns;
     protected int score;
     public Game() {
-        turns = 5;
-        score = 0;
+        this.score = 0;
     }
 
     public int getTurns() {
@@ -23,14 +23,13 @@ public class Game {
     }
 
     /**
-     * get random word index from 0 to 100.
+     * get random word index from 0 to 1000.
      *
-     * @param dictionary dictionary
      * @return Word.
      */
     public Word getRandomWord(Dictionary dictionary) {
         Random rand = new Random();
-        int randomIndex = rand.nextInt(101);
+        int randomIndex = rand.nextInt(150);
         return dictionary.getWord(randomIndex);
     }
 

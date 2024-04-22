@@ -85,15 +85,14 @@ public class DictionaryCommandLine {
                     System.out.println("You have 5 turns to guess the meaning of the word");
                     System.out.println("Type C - Enter to Continue or ESC-Enter to Exit");
                     Scanner choose = new Scanner(System.in);
-                    System.out.println("Your choice: ");
+                    System.out.print("Your choice: ");
                     String option;
                     option = choose.nextLine();
                     if (option.equals("C")) {
                         Game gm = new Game();
-                        while (!option.equals("ESC")) {
-
-                        }
-
+                        Word w = gm.getRandomWord(dictionary);
+                        Hangman hm = new Hangman(w);
+                        hm.play();
                     }
                     else {
                         break;
