@@ -91,8 +91,8 @@ public class DictionaryCommandLine {
                     if (option.equals("C")) {
                         Game gm = new Game();
                         Word w = gm.getRandomWord(dictionary);
-                        Hangman hm = new Hangman(w);
-                        hm.play();
+                        Game2 gm2 = new Game2(w);
+                        gm2.play();
                     }
                     else {
                         break;
