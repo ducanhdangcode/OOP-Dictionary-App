@@ -22,3 +22,14 @@ able	có khả năng
 abilities	khả năng
 hello	xin chào
 abandoned bỏ hoang
+hi	chào
+abandoned	bỏ hoang
+ability	khả năng
+able	có khả năng
+abilities	khả năng
+about	về
+above	ở trên
+abroad	ở nước ngoài
+absence	vắng mặt
+absolute	tuyệt đối
+absorption	sự hấp thụ

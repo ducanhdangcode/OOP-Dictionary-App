@@ -81,17 +81,15 @@ public class DictionaryCommandLine {
                     management.searchByPrefix(searchPrefix);
                     break;
                 case 7:
-                    System.out.println("You have 5 turns to guess the meaning of the word");
+
                     System.out.println("Type C - Enter to Continue or ESC-Enter to Exit");
                     Scanner choose = new Scanner(System.in);
                     System.out.print("Your choice: ");
                     String option;
                     option = choose.nextLine();
                     if (option.equals("C")) {
-                        Game gm = new Game();
-                        Word w = gm.getRandomWord(dictionary);
-                        Game2 gm2 = new Game2(w);
-                        gm2.play();
+                        GivingWord gv = new GivingWord(dictionary);
+                        gv.play();
                     }
                     else {
                         break;

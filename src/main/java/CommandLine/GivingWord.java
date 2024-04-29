@@ -2,10 +2,11 @@ package CommandLine;
 
 import java.util.Scanner;
 
-public class Game2 extends Game {
+public class GivingWord extends Game {
     //Đưa ra từ tiếng Anh có nghĩa cho trước
-    public Game2(Word word) {
-        this.word = word;
+    public GivingWord(Dictionary dictionary) {
+        super(dictionary);
+        this.word = this.getRandomWord();
         this.turns = 5;
         this.score = 0;
     }
