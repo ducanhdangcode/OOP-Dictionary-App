@@ -1,0 +1,7 @@
+.button-check {
+    -fx-graphic: url("../Image/CheckButton.png");
+}
+
+.button-exit {
+    -fx-graphic: url("../Image/ExitButton.png");
+}
