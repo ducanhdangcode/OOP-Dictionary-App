@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appdictionary.AddingController">
+   <children>
+      <Label alignment="CENTER" layoutX="96.0" layoutY="35.0" prefHeight="63.0" prefWidth="577.0" text="ADDING WORD" textFill="#e71111">
+         <font>
+            <Font name="Arial Bold Italic" size="23.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="39.0" layoutY="110.0" prefHeight="48.0" prefWidth="252.0" text="ENGLISH WORD" textFill="#2900f4">
+         <font>
+            <Font name="Arial Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="493.0" layoutY="110.0" prefHeight="48.0" prefWidth="252.0" text="WORD'S MEANING" textFill="#2900f4">
+         <font>
+            <Font name="Arial Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="engTextField" alignment="TOP_LEFT" layoutX="28.0" layoutY="158.0" prefHeight="314.0" prefWidth="274.0" promptText="Enter your word here...">
+         <font>
+            <Font name="Arial Bold Italic" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id = "vieTextField" alignment="TOP_LEFT" layoutX="482.0" layoutY="158.0" prefHeight="314.0" prefWidth="274.0" promptText="Enter your meaning here...">
+         <font>
+            <Font name="Arial Bold Italic" size="16.0" />
+         </font>
+      </TextField>
+      <Button fx:id = "addingButton" onAction = "#showConfirm" layoutX="354.0" layoutY="482.0" mnemonicParsing="false" style="-fx-pref-width: 50; -fx-pref-height: 50;" styleClass="button-adding-word" stylesheets="@../Style/Adding.css" />
+   </children>
+</AnchorPane>

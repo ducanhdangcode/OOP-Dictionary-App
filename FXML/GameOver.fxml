@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #0aff0a4a;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="60.0" layoutY="36.0" prefHeight="41.0" prefWidth="579.0" text="Find The Meaning" textFill="#d70b0b">
+         <font>
+            <Font name="Arial Bold Italic" size="28.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="154.0" layoutY="220.0" prefHeight="194.0" prefWidth="390.0" text="GAME OVER!" textFill="#d10bd4">
+         <font>
+            <Font name="Arial Bold Italic" size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
