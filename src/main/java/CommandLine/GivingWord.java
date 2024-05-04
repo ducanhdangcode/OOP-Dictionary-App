@@ -11,6 +11,7 @@ public class GivingWord extends Game {
         this.score = 0;
     }
 
+    @Override
     public void play() {
         Scanner sc = new Scanner(System.in);
         System.out.println( "Give the word which mean: " + this.word.getWordExplain());
