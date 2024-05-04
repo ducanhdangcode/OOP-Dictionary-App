@@ -82,15 +82,31 @@ public class DictionaryCommandLine {
                     break;
                 case 7:
 
-                    System.out.println("Type C - Enter to Continue or ESC-Enter to Exit");
+                    System.out.println("Type C to Play or ESC-Enter to Exit");
                     Scanner choose = new Scanner(System.in);
                     System.out.print("Your choice: ");
                     String option;
                     option = choose.nextLine();
-                    if (option.equals("C")) {
-                        Hangman gv = new Hangman(dictionary);
-                        gv.play();
+                    while(!option.equals("ESC")) {
+                        System.out.println("Type H: Hang Man or G: Giving Word  -> Enter");
+                        option = choose.nextLine();
+                        if(option.equals("H")){
+                            Hangman hm = new Hangman(dictionary);
+                            hm.play();
+                        }
+                        else if (option.equals("G")){
+                            GivingWord gv = new GivingWord(dictionary);
+                            gv.play();
+                        }
+                        else{
+                            System.out.println("Incorrect input. Exit");
+                            break;
+                        }
+                        System.out.println("Type C to Play or ESC-Enter to Exit");
+                        option = choose.nextLine();
                     }
+
+                    break;
                 case 8:
                     management.exportToFile(dictionary);
                     System.out.println("Import to file succesfully!");
