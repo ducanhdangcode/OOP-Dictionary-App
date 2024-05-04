@@ -128,9 +128,6 @@ public class Hangman extends Game {
         return correctGuess;
     }
 
-    public Word getWord() {
-        return this.word;
-    }
     public void play() {
         Scanner scanner = new Scanner(System.in);
         System.out.println(this.word.getWordExplain());
