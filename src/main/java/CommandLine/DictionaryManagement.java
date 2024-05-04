@@ -94,6 +94,30 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
+     * Add word.
+     *
+     * @param wordTarget    word in English
+     * @param wordExplain   word meaning
+     */
+    public void addWord(String wordTarget, String wordExplain) {
+        wordTarget = wordTarget.toLowerCase();
+        wordExplain = wordExplain.toLowerCase();
+
+        Word newWord = new Word(wordTarget, wordExplain);
+        dictionary.addWord(newWord);
+        exportToFile(dictionary);
+    }
+
+    public void addWordCMD(String wordTarget, String wordExplain) {
+        wordTarget = wordTarget.toLowerCase();
+        wordExplain = wordExplain.toLowerCase();
+
+        Word newWord = new Word(wordTarget, wordExplain);
+        dictionary.addWord(newWord);
+        exportToFile(dictionary);
+    }
+
+    /**
      * Remove word.
      *
      * @param English word in English
@@ -103,6 +127,10 @@ public class DictionaryManagement extends Dictionary {
         exportToFile(dictionary);
     }
 
+    public void removeWordCMD(String English) {
+        dictionary.removeWord(English);
+        exportToFile(dictionary);
+    }
     /**
      * Update word meaning
      *
@@ -113,6 +141,30 @@ public class DictionaryManagement extends Dictionary {
         wordTarget = wordTarget.toLowerCase();
         wordMeaning = wordMeaning.toLowerCase();
         dictionary.updateWord(wordTarget, wordMeaning);
+        exportToFile(dictionary);
+    }
+
+    public void updateWordCMD(String wordTarget, String wordMeaning) {
+        wordTarget = wordTarget.toLowerCase();
+        wordMeaning = wordMeaning.toLowerCase();
+        dictionary.updateWord(wordTarget, wordMeaning);
+        exportToFile(dictionary);
+    }
+
+    public void addWordToHistoryFile(Dictionary dictionary, String englishWord, String explanation) {
+        try {
+            FileWriter fileWriter = new FileWriter("src/main/resources/data/bookmark.txt", true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(englishWord + "\t" + explanation);
+            bufferedWriter.newLine();
+            bufferedWriter.close();
+        } catch (Exception e) {
+            System.out.println("Something went wrong: " + e);
+        }
+    }
+
+    public void removeWordInHistory(String English) {
+        dictionary.removeWord(English);
         exportToFile(dictionary);
     }
 

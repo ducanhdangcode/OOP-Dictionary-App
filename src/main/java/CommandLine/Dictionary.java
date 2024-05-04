@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public class Dictionary {
     private ArrayList<Word> wordList = new ArrayList<>();
+    private Trie storeTargetWord;
 
     public Dictionary() {
         this.wordList = new ArrayList<>();
+        this.storeTargetWord = new Trie();
     }
 
     /**
@@ -44,10 +46,12 @@ public class Dictionary {
      * @param word new word
      */
     public void addWord(Word word) {
-        int length = wordList.size();
-        int index = searchIndexInsert(0, length - 1, word.getWordTarget());
-        if (index <= length && index >= 0) {
-            wordList.add(index, word);
+        int check = storeTargetWord.search(word.getWordTarget());
+        if (check == -1) {
+            String wordTarget = word.getWordTarget();
+            int insertIndex = searchIndexInsert(0, wordList.size() - 1, wordTarget);
+            wordList.add(insertIndex, word);
+            storeTargetWord.insert(wordTarget, insertIndex);
         } else {
             System.out.println("The word already exists");
         }
@@ -59,9 +63,9 @@ public class Dictionary {
      * @param wordTarget E word
      */
     public void removeWord(String wordTarget) {
-        int index = binarySearchWord(wordTarget);
-        if (index >= 0) {
-            wordList.remove(index);
+        int check = storeTargetWord.remove(wordTarget);
+        if (check != -1) {
+            wordList.remove(check);
             System.out.println("Remove successfully!");
         } else {
             System.out.println("Word not found, no word removed.");
@@ -75,23 +79,24 @@ public class Dictionary {
      * @param updateWordExplain word meaning
      */
     public void updateWord(String wordTarget, String updateWordExplain) {
-        for (Word word : wordList) {
-            if (word.getWordTarget().equals(wordTarget)) {
-                word.setWordExplain(updateWordExplain);
-                System.out.println("Update successfully!");
-                return;
-            }
+        int index = binarySearchWord(wordTarget);
+        if (index != -1) {
+            wordList.get(index).setWordExplain(updateWordExplain);
+            storeTargetWord.insert(wordTarget, index); // Reinsert at the same position in the Trie
+            System.out.println("Word updated successfully!");
+        } else {
+            System.out.println("Word not found, could not update.");
         }
-        System.out.println("Word not found, update word failed!");
+
     }
 
     /**
-     * Search word index.
+     * Find the index for inserting a word in sorted order.
      *
      * @param start      start index
      * @param end        end index
      * @param wordTarget word in English
-     * @return index
+     * @return index for insertion
      */
     private int searchIndexInsert(int start, int end, String wordTarget) {
         if (end < start) return start;
@@ -99,7 +104,7 @@ public class Dictionary {
         if (mid == wordList.size()) return mid;
         Word word = wordList.get(mid);
         int compare = word.getWordTarget().compareTo(wordTarget);
-        if (compare == 0) return -1;
+        if (compare == 0) return mid;
         if (compare > 0) return searchIndexInsert(start, mid - 1, wordTarget);
         return searchIndexInsert(mid + 1, end, wordTarget);
     }
@@ -135,11 +140,13 @@ public class Dictionary {
      * @return mean in Vietnamese
      */
     public String lookupWord(String wordTarget) {
-        int index = binarySearchWord(wordTarget);
-        if (index >= 0) {
-            return "Work Explain: " + wordList.get(index).getWordExplain();
+        int check = storeTargetWord.search(wordTarget);
+        if (check == -1) {
+            return null;
+        } else {
+            return wordList.get(check).getWordExplain();
         }
-        return "Work not found, lookup word failed!";
+
     }
 
     /**
@@ -149,5 +156,14 @@ public class Dictionary {
      */
     public Word getWord(int index) {
         return wordList.get(index);
+    }
+
+    public ArrayList<String> searcher(String s, boolean permission) {
+        ArrayList<String> suggestions = storeTargetWord.suggestion(s, permission);
+        int selfCheck = storeTargetWord.search(s);
+        if (selfCheck != -1) {
+            suggestions.add(s);
+        }
+        return suggestions;
     }
 }

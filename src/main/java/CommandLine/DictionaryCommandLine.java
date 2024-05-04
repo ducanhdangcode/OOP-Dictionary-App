@@ -91,10 +91,6 @@ public class DictionaryCommandLine {
                         GivingWord gv = new GivingWord(dictionary);
                         gv.play();
                     }
-                    else {
-                        break;
-                    }
-                    break;
                 case 8:
                     management.exportToFile(dictionary);
                     System.out.println("Import to file succesfully!");

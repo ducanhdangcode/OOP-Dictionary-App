@@ -35,8 +35,8 @@ public abstract class Game {
      */
     public Word getRandomWord() {
         Random rand = new Random();
-        int randomIndex = rand.nextInt(150);
+        int randomIndex = rand.nextInt(15);
         return dictionary.getWord(randomIndex);
     }
-    abstract void play();
+    protected void play() {};
 }

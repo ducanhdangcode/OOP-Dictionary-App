@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 import java.util.Arrays;
 
-public class HangmanController {
+public class HangmanController extends GameController {
     @FXML
     private TextField wordField;
     @FXML
