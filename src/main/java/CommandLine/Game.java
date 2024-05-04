@@ -1,14 +1,13 @@
 package CommandLine;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public abstract class Game {
     protected Dictionary dictionary;
-    protected Word word;
+    protected WordManagement wordManagement;
     protected int turns;
     protected int score;
     public Game(Dictionary dictionary) {
@@ -33,10 +32,10 @@ public abstract class Game {
      *
      * @return Word.
      */
-    public Word getRandomWord() {
+    public WordManagement getRandomWord() {
         Random rand = new Random();
         int randomIndex = rand.nextInt(10);
-        return dictionary.getWord(randomIndex);
+        return dictionary.wordManagement(randomIndex);
     }
     protected void play() {};
 }

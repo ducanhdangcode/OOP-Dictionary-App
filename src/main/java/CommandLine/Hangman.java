@@ -1,5 +1,6 @@
 package CommandLine;
 
+import java.util.Dictionary;
 import java.util.Scanner;
 
 public class Hangman extends Game {
@@ -7,8 +8,8 @@ public class Hangman extends Game {
     public Hangman(Dictionary dictionary) {
         super(dictionary);
         this.turns = 6;
-        this.word = getRandomWord();
-        guessedLetters = new char[word.getWordTarget().length()];
+        this.wordManagement = getRandomWord();
+        guessedLetters = new char[wordManagement.getWordTarget().length()];
         initializeGuessedLetters();
     }
     public void L_Hold() {
@@ -62,14 +63,14 @@ public class Hangman extends Game {
         System.out.println(" |    O");
         System.out.println(" |   /|\\");
         System.out.println(" |   / \\");
-        System.out.println("Game over! The word was: " + this.word.getWordTarget());
+        System.out.println("Game over! The word was: " + this.wordManagement.getWordTarget());
     }
     public boolean isHangMan() {
         return this.turns == 0;
     }
 
     private void initializeGuessedLetters() {
-        for (int i = 0; i < this.word.getWordTarget().length(); i++) {
+        for (int i = 0; i < this.wordManagement.getWordTarget().length(); i++) {
             guessedLetters[i] = '_';
         }
     }
@@ -113,7 +114,7 @@ public class Hangman extends Game {
     }
 
     private boolean isGameOver() {
-        return this.turns + 1 == 0 || new String(guessedLetters).equals(this.word.getWordTarget());
+        return this.turns + 1 == 0 || new String(guessedLetters).equals(this.wordManagement.getWordTarget());
     }
 
     public char[] getGuessedLetters(){
@@ -122,7 +123,7 @@ public class Hangman extends Game {
     //Đoán ký tự
     public boolean makeGuess(char letter) {
         boolean correctGuess = false;
-        for (int i = 0; i < this.word.getWordTarget().length(); i++) {
+        for (int i = 0; i < this.wordManagement.getWordTarget().length(); i++) {
             if (this.word.getWordTarget().charAt(i) == letter) {
                 guessedLetters[i] = letter;
                 correctGuess = true;
@@ -136,7 +137,7 @@ public class Hangman extends Game {
 
     public void play() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(this.word.getWordExplain());
+        System.out.println(this.wordManagement.getWordExplain());
         while (!isGameOver()) {
             displayProgress();
             displayHangman();
