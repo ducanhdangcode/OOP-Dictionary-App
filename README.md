@@ -3,7 +3,7 @@
 ## 1. Mô tả
 
 App học từ điển là một BTL của môn Lập trình hướng đối tượng  (INT2204_1) của UET-VNU
-Project Từ điển Tiếng Anh của nhóm là một ứng dụng Java đơn giản được thiết kế để cho phép người dùng tra cứu các từ và cụm từ bằng tiếng Anh để tìm định nghĩa và ví dụ sử dụng. 
+Project Từ điển Tiếng Anh của nhóm là một ứng dụng Java đơn giản được thiết kế để cho phép người dùng tra cứu các từ và cụm từ bằng tiếng Anh để tìm định nghĩa và ví dụ sử dụng.
 Ngoài ra, người học có thể thêm những từ vựng mới, có thể học và chơi những trò chơi nhỏ để ghi nhớ từ tốt hơn.
 Dictionary App có giao diện thân thiện, dễ sử dụng, các nút chức năng được sắp xếp một cách logic và có tính nhất quán. 
 
