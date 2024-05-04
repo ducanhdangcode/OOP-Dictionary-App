@@ -106,6 +106,15 @@ public class Hangman extends Game {
         }
     }
 
+    public boolean checkCorrect() {
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < this.guessedLetters.length; ++i){
+            s.append(this.getGuessedLetters()[i]);
+        }
+        if (s.toString().equals(this.getWord().getWordTarget())) return true;
+        return false;
+    }
+
     private boolean isGameOver() {
         return this.turns == 0 || new String(guessedLetters).equals(this.word.getWordTarget());
     }
