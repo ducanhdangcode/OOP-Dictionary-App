@@ -88,7 +88,7 @@ public class DictionaryCommandLine {
                     String option;
                     option = choose.nextLine();
                     if (option.equals("C")) {
-                        GivingWord gv = new GivingWord(dictionary);
+                        Hangman gv = new Hangman(dictionary);
                         gv.play();
                     }
                 case 8:
