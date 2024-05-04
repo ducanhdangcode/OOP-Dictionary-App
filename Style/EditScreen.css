@@ -1,0 +1,7 @@
+.button-accept-edit {
+    -fx-graphic: url("../Image/EditAccepted.png");
+}
+
+.button-type-word {
+    -fx-graphic: url("../Image/ButtonType.png");
+}
