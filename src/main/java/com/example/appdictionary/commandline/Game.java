@@ -1,16 +1,15 @@
-package CommandLine;
+package com.example.appdictionary.commandline;
 
 import java.util.*;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public abstract class Game {
-    protected Dictionary dictionary;
+    protected MainDictionary dictionary;
     protected WordManagement wordManagement;
     protected int turns;
     protected int score;
-    public Game(Dictionary dictionary) {
+    public Game(MainDictionary dictionary) {
         this.score = 0;
         this.turns = 6;
         this.dictionary = dictionary;
@@ -35,7 +34,7 @@ public abstract class Game {
     public WordManagement getRandomWord() {
         Random rand = new Random();
         int randomIndex = rand.nextInt(10);
-        return dictionary.wordManagement(randomIndex);
+        return dictionary.getWord(randomIndex);
     }
     protected void play() {};
 }

@@ -1,0 +1,11 @@
+.button-speak {
+    -fx-graphic: url("../Image/SpeakIcon.png");
+}
+
+.button-edit {
+    -fx-graphic: url("../Image/EditButton.png");
+}
+
+.button-delete {
+    -fx-graphic: url("../Image/DeleteIcon.png");
+}

@@ -1,15 +1,17 @@
-package CommandLine;
+package com.example.appdictionary.commandline;
+
+import com.example.appdictionary.commandline.Game;
 
 import java.util.Dictionary;
 import java.util.Scanner;
 
 public class Hangman extends Game {
     private char[] guessedLetters;
-    public Hangman(Dictionary dictionary) {
+    public Hangman(MainDictionary dictionary) {
         super(dictionary);
         this.turns = 6;
         this.wordManagement = getRandomWord();
-        guessedLetters = new char[wordManagement.getWordTarget().length()];
+        guessedLetters = new char[wordManagement.getWord().length()];
         initializeGuessedLetters();
     }
     public void L_Hold() {
@@ -63,14 +65,14 @@ public class Hangman extends Game {
         System.out.println(" |    O");
         System.out.println(" |   /|\\");
         System.out.println(" |   / \\");
-        System.out.println("Game over! The word was: " + this.wordManagement.getWordTarget());
+        System.out.println("Game over! The word was: " + this.wordManagement.getWord());
     }
     public boolean isHangMan() {
         return this.turns == 0;
     }
 
     private void initializeGuessedLetters() {
-        for (int i = 0; i < this.wordManagement.getWordTarget().length(); i++) {
+        for (int i = 0; i < this.wordManagement.getWord().length(); i++) {
             guessedLetters[i] = '_';
         }
     }
@@ -109,12 +111,12 @@ public class Hangman extends Game {
         for (int i = 0; i < this.guessedLetters.length; ++i){
             s.append(this.getGuessedLetters()[i]);
         }
-        if (s.toString().equals(this.getWord().getWordTarget())) return true;
+        if (s.toString().equals(this.wordManagement.getWord())) return true;
         return false;
     }
 
     private boolean isGameOver() {
-        return this.turns + 1 == 0 || new String(guessedLetters).equals(this.wordManagement.getWordTarget());
+        return this.turns + 1 == 0 || new String(guessedLetters).equals(this.wordManagement.getWord());
     }
 
     public char[] getGuessedLetters(){
@@ -123,8 +125,8 @@ public class Hangman extends Game {
     //Đoán ký tự
     public boolean makeGuess(char letter) {
         boolean correctGuess = false;
-        for (int i = 0; i < this.wordManagement.getWordTarget().length(); i++) {
-            if (this.word.getWordTarget().charAt(i) == letter) {
+        for (int i = 0; i < this.wordManagement.getWord().length(); i++) {
+            if (this.wordManagement.getWord().charAt(i) == letter) {
                 guessedLetters[i] = letter;
                 correctGuess = true;
             }

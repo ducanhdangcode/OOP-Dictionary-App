@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="584.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appdictionary.EditScreenController">
+   <children>
+      <HBox layoutX="50.0" layoutY="171.0" prefHeight="152.0" prefWidth="295.0">
+         <children>
+            <ListView fx:id="wordList" onMouseClicked = "#handleChooseWord" prefHeight="152.0" prefWidth="298.0" />
+         </children>
+      </HBox>
+      <Label alignment="CENTER" layoutX="219.0" layoutY="28.0" prefHeight="50.0" prefWidth="414.0" text="Edit Word" textFill="#d10407">
+         <font>
+            <Font name="Arial Bold Italic" size="31.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="90.0" layoutY="78.0" prefHeight="37.0" prefWidth="216.0" text="English Word" textFill="#2c09c4">
+         <font>
+            <Font name="Arial Bold Italic" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="550.0" layoutY="108.0" prefHeight="38.0" prefWidth="216.0" text="New Meaning" textFill="#2d00df">
+         <font>
+            <Font name="Arial Bold Italic" size="17.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="74.0" fitWidth="64.0" layoutX="734.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../DictionaryIcon.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="editWord" onAction = "#showConfirm" layoutX="634.0" layoutY="461.0" mnemonicParsing="false" style="-fx-pref-width: 40; -fx-pref-height: 40;" styleClass="button-type-word" stylesheets="@../Style/EditScreen.css" />
+      <Pane layoutX="1.0" layoutY="378.0" prefHeight="206.0" prefWidth="414.0">
+         <children>
+            <TextArea fx:id="oldMeaning" prefHeight="206.0" prefWidth="414.0" />
+            <WebView fx:id="wOldMeaning" layoutY="2.0" prefHeight="206.0" prefWidth="414.0" />
+         </children>
+      </Pane>
+      <TextField fx:id="typeWordArea" layoutX="50.0" layoutY="117.0" prefHeight="38.0" prefWidth="296.0" promptText="Enter your word here...">
+         <font>
+            <Font name="Arial Bold Italic" size="15.0" />
+         </font>
+      </TextField>
+      <Pane layoutX="2.0" layoutY="331.0" prefHeight="40.0" prefWidth="523.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="1.0" prefHeight="38.0" prefWidth="238.0" text="Default Meaning" textFill="#2c09c4">
+               <font>
+                  <Font name="Arial Bold Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="englishDisplayWord" alignment="CENTER" layoutX="326.0" layoutY="-5.0" prefHeight="50.0" prefWidth="64.0" textFill="#cf0b0b">
+               <font>
+                  <Font name="Arial Bold Italic" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TextField fx:id="NewMeaning" alignment="TOP_LEFT" layoutX="510.0" layoutY="171.0" prefHeight="277.0" prefWidth="295.0" promptText="Type your new meaning here...">
+         <font>
+            <Font name="Arial Bold Italic" size="16.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

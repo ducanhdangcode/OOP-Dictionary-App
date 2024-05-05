@@ -1,11 +1,13 @@
-package CommandLine;
+package com.example.appdictionary.commandline;
+
+import com.example.appdictionary.commandline.Game;
 
 import java.util.Dictionary;
 import java.util.Scanner;
 
 public class GivingWord extends Game {
     //Đưa ra từ tiếng Anh có nghĩa cho trước
-    public GivingWord(Dictionary dictionary) {
+    public GivingWord(MainDictionary dictionary) {
         super(dictionary);
         this.wordManagement = this.getRandomWord();
         this.turns = 5;
@@ -19,7 +21,7 @@ public class GivingWord extends Game {
         while (this.turns > 0) {
             System.out.print("Your answer: ");
             String ans = sc.nextLine();
-            if (ans.equals(this.wordManagement.getWordTarget())) {
+            if (ans.equals(this.wordManagement.getWord())) {
                 System.out.println("Correct!");
                 break;
             }
@@ -28,6 +30,6 @@ public class GivingWord extends Game {
                 System.out.println("Try again!");
             }
         }
-        if (this.turns == 0) System.out.println("You lose! The correct answer is: " + this.wordManagement.getWordTarget());
+        if (this.turns == 0) System.out.println("You lose! The correct answer is: " + this.wordManagement.getWord());
     }
 }
