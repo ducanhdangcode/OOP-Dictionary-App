@@ -17,7 +17,7 @@
       </Label>
       <ImageView fx:id = "FindTheMeaningImage" fitHeight="201.0" fitWidth="180.0" layoutX="527.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../WordGameIcon.png" />
+            <Image url="@../Image/WordGameIcon.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -28,7 +28,7 @@
       </ImageView>
       <ImageView fx:id = "HangManImage" fitHeight="188.0" fitWidth="180.0" layoutX="75.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../HangManGame.png" />
+            <Image url="@../Image/HangManGameIcon.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
